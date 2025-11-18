@@ -1,4 +1,4 @@
-# World-Economic-Indicator — ML Regression Project
+# World Economic Indicator – GDP Prediction Project
 
 This project is part of the **ML Zoomcamp Midterm** and focuses on predicting **GDP** using global economic indicators such as inflation, unemployment, population, interest rates, and more.
 
@@ -31,148 +31,110 @@ The workflow includes:
 
 ---
 
-## 📁 2. Repository Structure
+This is my submission for the **ML Zoomcamp Midterm Project**.
 
-```bash
+---
+
+## 📁 Project Files
+
+```
 World-Economic-Indicator/
 │
 ├── app/
-│   ├── main.py             # Flask API
-│   └── model.pkl           # saved ML model
+│   └── main.py            # Flask web service
 │
 ├── models/
-│   └── main.py             # ML training script
+│   └── main.py            # Model training script
 │
 ├── notebooks/
-│   └── World Economic Indicator, Mid term project - fixed.ipynb
+│   └── World Economic Indicator.ipynb  # Main notebook
 │
-├── requirements.txt        # project dependencies
-├── Dockerfile              # container setup
-├── pyproject.toml          # poetry config (optional)
-├── .gitignore
+├── model.pkl              # Saved machine learning model
+├── requirements.txt       # Python packages
+├── Dockerfile             # For running with Docker
 └── README.md
 ```
 
 ---
 
-## 🧪 3. Model Training
+## 📊 What the Project Does
 
-All ML work is done in:
-
-```
-models/main.py
-```
-
-This script:
-
-* Loads the dataset
-* Splits into train/test
-* Builds preprocessing pipelines
-* Trains Linear Regression & Random Forest
-* Selects the best model
-* Saves it as `model.pkl`
+1. Loads a dataset of world economic indicators
+2. Cleans the data
+3. Trains ML models to predict GDP
+4. Saves the best model
+5. Runs a simple API where you can send numbers and get a GDP prediction
 
 ---
 
-## 🔮 4. API Usage (Flask Web Service)
+## 🚀 How to Run the Project
 
-Run the service:
-
-```bash
-python app/main.py
-```
-
-The API exposes one endpoint:
-
-### **POST /predict**
-
-Example request:
-
-```json
-{
-  "inflation": 2.5,
-  "unemployment": 6.2,
-  "population": 50000000,
-  "interest_rate": 1.8
-}
-```
-
-Example response:
-
-```json
-{
-  "gdp_prediction": 43829.42
-}
-```
-
----
-
-## 🐳 5. Running with Docker
-
-Build the Docker image:
-
-```bash
-docker build -t gdp-service .
-```
-
-Run the container:
-
-```bash
-docker run -p 8000:8000 gdp-service
-```
-
-API will be available at:
-
-```
-http://localhost:8000/predict
-```
-
----
-
-## 🌐 6. Optional: Deploy to Cloud
-
-You may deploy to:
-
-* AWS EC2
-* Render
-* Railway
-* Fly.io
-
-The Dockerfile supports cloud deployment with no modification.
-
----
-
-## 📦 7. Installation (Local)
-
-Create environment:
-
-```bash
-python -m venv venv
-source venv/bin/activate   # macOS/Linux
-venv\Scripts\activate      # Windows
-```
-
-Install dependencies:
+### 1. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
+### 2. Run the web service
+
+```bash
+python app/main.py
+```
+
+The API will start at:
+
+```
+http://localhost:8000
+```
+
 ---
 
-## 📝 8. Requirements
+## 🔮 Example Prediction Request
 
-* Python 3.10
-* Scikit-Learn
-* Pandas
-* NumPy
-* Flask
-* Docker (for containerized deployment)
+Send a POST request to:
+
+```
+http://localhost:8000/predict
+```
+
+Example JSON:
+
+```json
+{
+  "inflation": 2.5,
+  "unemployment": 5.1,
+  "population": 45000000,
+  "interest_rate": 1.2
+}
+```
 
 ---
 
-## 📬 9. Contact
+## 🐳 Running with Docker
 
+Build the image:
+
+```bash
+docker build -t gdp-service .
+```
+
+Run it:
+
+```bash
+docker run -p 8000:8000 gdp-service
+```
+
+---
+
+## 📝 Notes
+
+* This project is for learning and practicing machine learning deployment
+* The model used is simple and not optimized
+* The goal is to show the full process from training → saving → deployment
+
+---
+
+## 👩‍💻 Author
 Developed by **Christina Ravichandran**
 For ML Zoomcamp Midterm Submission.
 
