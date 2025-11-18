@@ -1,0 +1,46 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.env.*
+.venv/
+*.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Models
+models/*.pkl
+models/*.joblib
+models/*.h5
+
+# Data files (don't push to GitHub)
+data/
+*.csv
+*.xlsx
+*.parquet
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Docker
+*.pid
+*.sock
+
+# Build output
+dist/
+build/
+*.egg-info/
+
+# IDE / Editor
+.vscode/
+.idea/
